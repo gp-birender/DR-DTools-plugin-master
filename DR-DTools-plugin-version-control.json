@@ -1,0 +1,29 @@
+{
+    "name": "DR Disciple Tools Plugin",
+    "version": "0.0.1",
+    "download_url": "https://github.com/micahmills/RS-DTools-plugin/releases/download/0.2.1/RS-DTools-plugin.zip",
+
+    "homepage": "https://github.com/micahmills/RS-DTools-plugin",
+    "requires": "4.7",
+    "tested": "4.9.2",
+    "last_updated": "2020-2-6 00:00:00",
+    "upgrade_notice": "Here's why you should upgrade...",
+
+    "sections": {
+      "description": "Extending Disciple Tools to show contact based on the digital responder location",
+      "installation": "(Required) You must have Disciple.Tools Theme installed before using this plugin. Once Disciple.Tools is installed, you can use the normal Plugin system to install the plugin.",
+      "changelog": "This is the public release version of the plugin.",
+      "custom_section": "This is a custom section labeled 'Custom Section'."
+    },
+
+    "banners": {
+      "low": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/images/dt-placeholder-772x250.jpg",
+      "high": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/images/dt-placeholder-1544x500.jpg"
+    },
+
+    "rating": 90,
+    "num_ratings": 10,
+
+    "downloaded": 10,
+    "active_installs": 100
+  }

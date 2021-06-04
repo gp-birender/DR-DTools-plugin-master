@@ -1,13 +1,12 @@
 <?php
 /**
- * Plugin Name: Disciple Tools - Plugin Starter Template
- * Plugin URI: https://github.com/DiscipleTools/disciple-tools-plugin-starter-template
- * Description: Disciple Tools - Plugin Starter Template is intended to help developers and integrator jumpstart their extension of the Disciple Tools system.
- * Text Domain: disciple-tools-plugin-starter-template
+ * Plugin Name: Disciple Tools - Plugin Filter Contacts
+ * Description: Disciple Tools - This plugin is user to filter contact, if the logged in user is a digital responder we need to show all the contacts which have the same location as digital responder.
+ * Text Domain: DRDT
  * Domain Path: /languages
  * Version:  0.1
  * Author URI: https://github.com/DiscipleTools
- * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-plugin-starter-template
+ * GitHub Plugin URI: https://github.com/DiscipleTools/
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
  * Tested up to: 5.6
@@ -20,7 +19,7 @@
 
 /**
  * Refactoring (renaming) this plugin as your own:
- * 1. @todo Refactor all occurrences of the name Disciple_Tools_Plugin_Starter_Template, disciple_tools_plugin_starter_template, disciple-tools-plugin-starter-template, starter_post_type, and "Plugin Starter Template"
+ * 1. @todo Refactor all occurrences of the name DRDT_plugin, DRDT_plugin, disciple-tools-plugin-starter-template, starter_post_type, and "Plugin Starter Template"
  * 2. @todo Rename the `disciple-tools-plugin-starter-template.php file.
  * 3. @todo Update the README.md and LICENSE
  * 4. @todo Update the default.pot file if you intend to make your plugin multilingual. Use a tool like POEdit
@@ -31,14 +30,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Gets the instance of the `Disciple_Tools_Plugin_Starter_Template` class.
+ * Gets the instance of the `DRDT_plugin` class.
  *
  * @since  0.1
  * @access public
  * @return object|bool
  */
-function disciple_tools_plugin_starter_template() {
-    $disciple_tools_plugin_starter_template_required_dt_theme_version = '1.0';
+function DRDT_plugin() {
+    $DRDT_plugin_required_dt_theme_version = '1.0';
     $wp_theme = wp_get_theme();
     $version = $wp_theme->version;
 
@@ -46,8 +45,8 @@ function disciple_tools_plugin_starter_template() {
      * Check if the Disciple.Tools theme is loaded and is the latest required version
      */
     $is_theme_dt = strpos( $wp_theme->get_template(), "disciple-tools-theme" ) !== false || $wp_theme->name === "Disciple Tools";
-    if ( $is_theme_dt && version_compare( $version, $disciple_tools_plugin_starter_template_required_dt_theme_version, "<" ) ) {
-        add_action( 'admin_notices', 'disciple_tools_plugin_starter_template_hook_admin_notice' );
+    if ( $is_theme_dt && version_compare( $version, $DRDT_plugin_required_dt_theme_version, "<" ) ) {
+        add_action( 'admin_notices', 'DRDT_plugin_hook_admin_notice' );
         add_action( 'wp_ajax_dismissed_notice_handler', 'dt_hook_ajax_notice_handler' );
         return false;
     }
@@ -61,10 +60,10 @@ function disciple_tools_plugin_starter_template() {
         require_once get_template_directory() . '/dt-core/global-functions.php';
     }
 
-    return Disciple_Tools_Plugin_Starter_Template::instance();
+    return DRDT_plugin::instance();
 
 }
-add_action( 'after_setup_theme', 'disciple_tools_plugin_starter_template', 20 );
+add_action( 'after_setup_theme', 'DRDT_plugin', 20 );
 
 /**
  * Singleton class for setting up the plugin.
@@ -72,7 +71,7 @@ add_action( 'after_setup_theme', 'disciple_tools_plugin_starter_template', 20 );
  * @since  0.1
  * @access public
  */
-class Disciple_Tools_Plugin_Starter_Template {
+class DRDT_plugin {
 
     private static $_instance = null;
     public static function instance() {
@@ -88,48 +87,8 @@ class Disciple_Tools_Plugin_Starter_Template {
          * @todo Decide if you want to use the REST API example
          * To remove: delete this following line and remove the folder named /rest-api
          */
-        if ( $is_rest && strpos( dt_get_url_path(), 'disciple_tools_plugin_starter_template_template' ) !== false ) {
-            require_once( 'rest-api/rest-api.php' ); // adds starter rest api class
-        }
-
-        /**
-         * @todo Decide if you want to create a new post type
-         * To remove: delete the line below and remove the folder named /post-type
-         */
-        require_once( 'post-type/loader.php' ); // add starter post type extension to Disciple Tools system
-
-        /**
-         * @todo Decide if you want to create a custom site-to-site link
-         * To remove: delete the line below and remove the folder named /site-link
-         */
-        require_once( 'site-link/custom-site-to-site-links.php' ); // add site to site link class and capabilities
-
-        /**
-         * @todo Decide if you want to add new charts to the metrics section
-         * To remove: delete the line below and remove the folder named /charts
-         */
-        if ( strpos( dt_get_url_path(), 'metrics' ) !== false || ( $is_rest && strpos( dt_get_url_path(), 'disciple-tools-plugin-starter-template-metrics' ) !== false ) ){
-            require_once( 'charts/charts-loader.php' );  // add custom charts to the metrics area
-        }
-
-        /**
-         * @todo Decide if you want to add a custom tile
-         * To remove: delete the line below and remove the folder named /tile
-         */
-        require_once( 'tile/custom-tile.php' ); // add custom tile
-
-        /**
-         * @todo Decide if you want to create a magic link
-         * To remove: delete the line below and remove the folder named /magic-link
-         */
-        require_once( 'magic-link/magic-link.php' );
-
-        /**
-         * @todo Decide if you want to add a custom admin page in the admin area
-         * To remove: delete the 3 lines below and remove the folder named /admin
-         */
-        if ( is_admin() ) {
-            require_once( 'admin/admin-menu-and-tabs.php' ); // adds starter admin page and section for plugin
+        if ( $is_rest && strpos( dt_get_url_path(), 'DRDT_plugin_template' ) !== false ) {
+           // require_once( 'rest-api/rest-api.php' ); // adds starter rest api class
         }
 
         /**
@@ -146,8 +105,58 @@ class Disciple_Tools_Plugin_Starter_Template {
             add_filter( 'plugin_row_meta', [ $this, 'plugin_description_links' ], 10, 4 );
         }
 
+        add_filter( "dt_filter_access_permissions", [ $this, "dt_filter_access_permissions" ], 20, 2 );
+        add_filter( "dt_can_view_permission", [ $this, 'can_view_permission_filter' ], 10, 3 );
+        add_filter( "dt_can_update_permission", [ $this, 'can_update_permission_filter' ], 10, 3 );
+
     }
 
+    public static function dt_filter_access_permissions( $permissions, $post_type ){
+	    if ( $post_type === "contacts" ){
+			//get logged in user id and its role
+			$userId = get_current_user_id();
+			$user = wp_get_current_user();
+			$data = get_user_meta($userId);
+			
+			//get current blog ID
+			$current_site = get_current_site();
+			if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) ) {
+				$permissions[] = [ "location_grid" => $data['wp_'.get_current_blog_id().'_location_grid']];
+            }
+			
+        }
+		return $permissions;
+    }
+
+    public	function can_view_permission_filter( $has_permission, $post_id, $post_type ){
+		
+        if ( $post_type === "contacts" ){
+			$userId = get_current_user_id();
+			$user = wp_get_current_user();
+			$data = get_user_meta($userId);
+          
+			$locations = get_post_meta( $post_id, "location_grid", false );
+			//cheeck for the view permission
+			 if ( count(array_intersect( $data['wp_'.get_current_blog_id().'_location_grid'], $locations ))>0){
+				return true;
+			}
+          
+        }
+        return $has_permission;
+    }
+    public  function can_update_permission_filter( $has_permission, $post_id, $post_type ){
+        if ( $post_type === "contacts" ){
+			$userId = get_current_user_id();
+			$user = wp_get_current_user();
+			$data = get_user_meta($userId);
+           
+			$locations = get_post_meta( $post_id, "location_grid", false );
+			 if ( count(array_intersect( $data['wp_'.get_current_blog_id().'_location_grid'], $locations ))>0){
+				 return true;
+			 }
+        }
+        return $has_permission;
+    }
     /**
      * Filters the array of row meta for each/specific plugin in the Plugins list table.
      * Appends additional links below each/specific plugin on the plugins page.
@@ -241,7 +250,7 @@ class Disciple_Tools_Plugin_Starter_Template {
      * @access public
      */
     public function __call( $method = '', $args = array() ) {
-        _doing_it_wrong( "disciple_tools_plugin_starter_template::" . esc_html( $method ), 'Method does not exist.', '0.1' );
+        _doing_it_wrong( "DRDT_plugin::" . esc_html( $method ), 'Method does not exist.', '0.1' );
         unset( $method, $args );
         return null;
     }
@@ -249,18 +258,18 @@ class Disciple_Tools_Plugin_Starter_Template {
 
 
 // Register activation hook.
-register_activation_hook( __FILE__, [ 'Disciple_Tools_Plugin_Starter_Template', 'activation' ] );
-register_deactivation_hook( __FILE__, [ 'Disciple_Tools_Plugin_Starter_Template', 'deactivation' ] );
+register_activation_hook( __FILE__, [ 'DRDT_plugin', 'activation' ] );
+register_deactivation_hook( __FILE__, [ 'DRDT_plugin', 'deactivation' ] );
 
 
-if ( ! function_exists( 'disciple_tools_plugin_starter_template_hook_admin_notice' ) ) {
-    function disciple_tools_plugin_starter_template_hook_admin_notice() {
-        global $disciple_tools_plugin_starter_template_required_dt_theme_version;
+if ( ! function_exists( 'DRDT_plugin_hook_admin_notice' ) ) {
+    function DRDT_plugin_hook_admin_notice() {
+        global $DRDT_plugin_required_dt_theme_version;
         $wp_theme = wp_get_theme();
         $current_version = $wp_theme->version;
         $message = "'Disciple Tools - Plugin Starter Template' plugin requires 'Disciple Tools' theme to work. Please activate 'Disciple Tools' theme or make sure it is latest version.";
         if ( $wp_theme->get_template() === "disciple-tools-theme" ){
-            $message .= ' ' . sprintf( esc_html( 'Current Disciple Tools version: %1$s, required version: %2$s' ), esc_html( $current_version ), esc_html( $disciple_tools_plugin_starter_template_required_dt_theme_version ) );
+            $message .= ' ' . sprintf( esc_html( 'Current Disciple Tools version: %1$s, required version: %2$s' ), esc_html( $current_version ), esc_html( $DRDT_plugin_required_dt_theme_version ) );
         }
         // Check if it's been dismissed...
         if ( ! get_option( 'dismissed-disciple-tools-plugin-starter-template', false ) ) { ?>

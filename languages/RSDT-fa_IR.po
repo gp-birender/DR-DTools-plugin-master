@@ -1,0 +1,166 @@
+# Copyright (C) 2020
+# This file is distributed under the same license as the Rooze3Vom Disciple Tools plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Rooze3Vom Disciple Tools 0.1.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/RSDT\n"
+"POT-Creation-Date: 2020-04-28T22:42:39+00:00\n"
+"PO-Revision-Date: 2020-05-26 21:36+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3.1\n"
+"X-Domain: roozeSevom_disciple_tools\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+
+#. Plugin Name of the plugin
+msgid "Rooze3Vom Disciple Tools"
+msgstr "‫Rooze3Vom Disciple Tools"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/micahmills/RS-DTools-plugin"
+msgstr ""
+
+#. Description of the plugin
+msgid "Extending Disciple Tools to accommmodate Rooze Sevom's Needs"
+msgstr "‫Disciple Tools Plugin برای روزه سوم"
+
+#. Author URI of the plugin
+msgid "https://github.com/micahmills"
+msgstr "‫https://github.com/micahmills"
+
+#: includes/functions.php:29
+msgid "Internet"
+msgstr "اینترنت"
+
+#: includes/functions.php:35
+msgid "VPN"
+msgstr "‫VPN"
+
+#: includes/functions.php:41
+msgid "Enjilme_PDF"
+msgstr "‫enjil.me (PDF)"
+
+#: includes/functions.php:47
+msgid "SD Card"
+msgstr "‫SD card"
+
+#: includes/functions.php:53 includes/functions.php:73
+msgid "Friend"
+msgstr "دوست"
+
+#: includes/functions.php:59
+msgid "Family Member"
+msgstr "خانواده"
+
+#: includes/functions.php:65
+msgid "RS.com"
+msgstr "‫RS.com"
+
+#: includes/functions.php:79
+msgid "Seeker"
+msgstr "حق جو"
+
+#: includes/functions.php:85
+msgid "New Believer"
+msgstr "نو ایمان"
+
+#: includes/functions.php:91
+msgid "Believer"
+msgstr "ایماندار"
+
+#: includes/functions.php:97
+msgid "Needs Counseling"
+msgstr "احتیاج به مشاوره دارد"
+
+#: includes/functions.php:103
+msgid "Is Counseling"
+msgstr "درحال مشاوره است"
+
+#: includes/functions.php:109
+msgid "Counseling Complete"
+msgstr "مشاوره انجام شد"
+
+#: includes/functions.php:115 includes/functions.php:333
+msgid "Marital Status"
+msgstr "وضعیت تأهل"
+
+#: includes/functions.php:121
+msgid "Married"
+msgstr "متأهل"
+
+#: includes/functions.php:122
+msgid "Single"
+msgstr "مجرد"
+
+#: includes/functions.php:123
+msgid "Widowed"
+msgstr "بیوه"
+
+#: includes/functions.php:124
+msgid "Divorced"
+msgstr "متارکه"
+
+#: includes/functions.php:131 includes/functions.php:350
+msgid "Date of Marriage"
+msgstr "تاریخ ازدواج"
+
+#: includes/functions.php:141 includes/functions.php:272
+msgid "Alias"
+msgstr "نام مستعار"
+
+#: includes/functions.php:151 includes/functions.php:277
+msgid "Education"
+msgstr "تحصیلات"
+
+#: includes/functions.php:162 includes/functions.php:282
+msgid "Religion"
+msgstr "دین"
+
+#: includes/functions.php:173 includes/functions.php:287
+msgid "Religious Orientation"
+msgstr "گرایش مذهبی"
+
+#: includes/functions.php:184 includes/functions.php:292
+msgid "Occupation"
+msgstr "شغل"
+
+#: includes/functions.php:195 includes/functions.php:297
+msgid "Date of Birth"
+msgstr "تاریخ تولد"
+
+#: includes/functions.php:206 includes/functions.php:310
+msgid "Date of Faith"
+msgstr "تاریخ ایمان"
+
+#: includes/functions.php:217 includes/functions.php:323
+msgid "Church Name"
+msgstr "نام کلیسای محلی"
+
+#: includes/functions.php:228 includes/functions.php:328
+msgid "Pastor's Name"
+msgstr "نام شبان/ راهنما/ کشیش"
+
+#: includes/functions.php:234
+msgid "Children"
+msgstr "فرزندان"
+
+#: includes/functions.php:241
+msgid "Yes"
+msgstr "بله"
+
+#: includes/functions.php:241
+msgid "No"
+msgstr "خیر"
+
+#: includes/functions.php:249 includes/functions.php:363
+msgid "Number of Children"
+msgstr "تعداد فرزند"
+
+#, fuzzy
+#~| msgid "Date of Faith"
+#~ msgid "Date of Marriage!"
+#~ msgstr "تاریخ ایمان"

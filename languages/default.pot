@@ -1,56 +1,172 @@
-#, fuzzy
+# Copyright (C) 2020
+# This file is distributed under the same license as the Rooze3Vom Disciple Tools plugin.
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: Disciple Tools - Plugin Starter Template\n"
-"POT-Creation-Date: 2020-05-07 10:44+0100\n"
-"PO-Revision-Date: 2018-01-29 05:53-0700\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"Project-Id-Version: Rooze3Vom Disciple Tools 0.2.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/RSDT\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: disciple-tools-plugin-starter-template.php\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
-"X-Poedit-SearchPathExcluded-1: */libraries/*\n"
+"POT-Creation-Date: 2020-04-28T22:42:39+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: RSDT\n"
 
-#: disciple-tools-plugin-starter-template.php:316
-msgid ""
-"'Disciple Tools - Plugin Starter Template' plugin requires 'Disciple Tools' theme to "
-"work. Please activate 'Disciple Tools' theme or make sure it is latest "
-"version."
+#. Plugin Name of the plugin
+msgid "Rooze3Vom Disciple Tools"
 msgstr ""
 
-#: disciple-tools-plugin-starter-template.php:318
-#, php-format
-msgid "Current Disciple Tools version: %1$s, required version: %2$s"
+#. Plugin URI of the plugin
+msgid "https://github.com/micahmills/RS-DTools-plugin"
 msgstr ""
 
-#: includes/admin/admin-menu-and-tabs.php:61
-msgid "Extensions (DT)"
+#. Description of the plugin
+msgid "Extending Disciple Tools to accommmodate Rooze Sevom's Needs"
 msgstr ""
 
-#: includes/admin/admin-menu-and-tabs.php:62
-#: includes/admin/admin-menu-and-tabs.php:90
-msgid "Plugin Starter Template"
+#. Author URI of the plugin
+msgid "https://github.com/micahmills"
 msgstr ""
 
-#: includes/admin/admin-menu-and-tabs.php:77
-msgid "You do not have sufficient permissions to access this page."
+#: includes/functions.php:29
+msgid "Internet"
 msgstr ""
 
-#: includes/admin/admin-menu-and-tabs.php:93
-msgid "General"
+#: includes/functions.php:35
+msgid "VPN"
 msgstr ""
 
-#: includes/admin/admin-menu-and-tabs.php:94
-msgid "Second"
+#: includes/functions.php:41
+msgid "Enjilme_PDF"
+msgstr ""
+
+#: includes/functions.php:47
+msgid "SD Card"
+msgstr ""
+
+#: includes/functions.php:53
+#: includes/functions.php:73
+msgid "Friend"
+msgstr ""
+
+#: includes/functions.php:59
+msgid "Family Member"
+msgstr ""
+
+#: includes/functions.php:65
+msgid "RS.com"
+msgstr ""
+
+#: includes/functions.php:79
+msgid "Seeker"
+msgstr ""
+
+#: includes/functions.php:85
+msgid "New Believer"
+msgstr ""
+
+#: includes/functions.php:91
+msgid "Believer"
+msgstr ""
+
+#: includes/functions.php:97
+msgid "Needs Counseling"
+msgstr ""
+
+#: includes/functions.php:103
+msgid "Is Counseling"
+msgstr ""
+
+#: includes/functions.php:109
+msgid "Counseling Complete"
+msgstr ""
+
+#: includes/functions.php:115
+#: includes/functions.php:333
+msgid "Marital Status"
+msgstr ""
+
+#: includes/functions.php:121
+msgid "Married"
+msgstr ""
+
+#: includes/functions.php:122
+msgid "Single"
+msgstr ""
+
+#: includes/functions.php:123
+msgid "Widowed"
+msgstr ""
+
+#: includes/functions.php:124
+msgid "Divorced"
+msgstr ""
+
+#: includes/functions.php:131
+#: includes/functions.php:350
+msgid "Date of Marriage"
+msgstr ""
+
+#: includes/functions.php:141
+#: includes/functions.php:272
+msgid "Alias"
+msgstr ""
+
+#: includes/functions.php:151
+#: includes/functions.php:277
+msgid "Education"
+msgstr ""
+
+#: includes/functions.php:162
+#: includes/functions.php:282
+msgid "Religion"
+msgstr ""
+
+#: includes/functions.php:173
+#: includes/functions.php:287
+msgid "Religious Orientation"
+msgstr ""
+
+#: includes/functions.php:184
+#: includes/functions.php:292
+msgid "Occupation"
+msgstr ""
+
+#: includes/functions.php:195
+#: includes/functions.php:297
+msgid "Date of Birth"
+msgstr ""
+
+#: includes/functions.php:206
+#: includes/functions.php:310
+msgid "Date of Faith"
+msgstr ""
+
+#: includes/functions.php:217
+#: includes/functions.php:323
+msgid "Church Name"
+msgstr ""
+
+#: includes/functions.php:228
+#: includes/functions.php:328
+msgid "Pastor's Name"
+msgstr ""
+
+#: includes/functions.php:234
+msgid "Children"
+msgstr ""
+
+#: includes/functions.php:241
+msgid "Yes"
+msgstr ""
+
+#: includes/functions.php:241
+msgid "No"
+msgstr ""
+
+#: includes/functions.php:249
+#: includes/functions.php:363
+msgid "Number of Children"
 msgstr ""
