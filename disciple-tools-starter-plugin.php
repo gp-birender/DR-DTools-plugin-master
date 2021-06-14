@@ -117,16 +117,16 @@ class DRDT_plugin {
 			$userId = get_current_user_id();
 			$user = wp_get_current_user();
 			$data = get_user_meta($userId);
-			
-			//get current blog ID
-			$current_site = get_current_site();
-			if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) ) {
-				$permissions[] = [ "location_grid" => $data['wp_'.get_current_blog_id().'_location_grid']];
+	
+		if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) ) {
+				$permissions[] = [ "location_grid" => get_user_option( 'location_grid', $userId )];
             }
 			
         }
 		return $permissions;
     }
+	
+	
 
     public	function can_view_permission_filter( $has_permission, $post_id, $post_type ){
 		
@@ -137,7 +137,7 @@ class DRDT_plugin {
           
 			$locations = get_post_meta( $post_id, "location_grid", false );
 			//cheeck for the view permission
-			 if ( count(array_intersect( $data['wp_'.get_current_blog_id().'_location_grid'], $locations ))>0){
+			 if ( count(array_intersect( get_user_option( 'location_grid', $userId ), $locations ))>0){
 				return true;
 			}
           
@@ -151,7 +151,7 @@ class DRDT_plugin {
 			$data = get_user_meta($userId);
            
 			$locations = get_post_meta( $post_id, "location_grid", false );
-			 if ( count(array_intersect( $data['wp_'.get_current_blog_id().'_location_grid'], $locations ))>0){
+			 if ( count(array_intersect( get_user_option( 'location_grid', $userId ), $locations ))>0){
 				 return true;
 			 }
         }
