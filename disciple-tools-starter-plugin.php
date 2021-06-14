@@ -116,10 +116,9 @@ class DRDT_plugin {
 			//get logged in user id and its role
 			$userId = get_current_user_id();
 			$user = wp_get_current_user();
-			$data = get_user_meta($userId);
 	
 		if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) ) {
-				$permissions[] = [ "location_grid" => get_user_option( 'location_grid', $userId )];
+				$permissions[] = [ "location_grid" => [get_user_option( 'location_grid', $userId )]];
             }
 			
         }
@@ -132,14 +131,11 @@ class DRDT_plugin {
 		
         if ( $post_type === "contacts" ){
 			$userId = get_current_user_id();
-			$user = wp_get_current_user();
-			$data = get_user_meta($userId);
-          
 			$locations = get_post_meta( $post_id, "location_grid", false );
 			//cheeck for the view permission
-			 if ( count(array_intersect( get_user_option( 'location_grid', $userId ), $locations ))>0){
+			 if ( count(array_intersect([get_user_option( 'location_grid', $userId)], $locations ))>0){
 				return true;
-			}
+			}[
           
         }
         return $has_permission;
@@ -147,11 +143,9 @@ class DRDT_plugin {
     public  function can_update_permission_filter( $has_permission, $post_id, $post_type ){
         if ( $post_type === "contacts" ){
 			$userId = get_current_user_id();
-			$user = wp_get_current_user();
-			$data = get_user_meta($userId);
-           
 			$locations = get_post_meta( $post_id, "location_grid", false );
-			 if ( count(array_intersect( get_user_option( 'location_grid', $userId ), $locations ))>0){
+			
+			 if ( count(array_intersect([get_user_option( 'location_grid', $userId )], $locations ))>0){
 				 return true;
 			 }
         }
