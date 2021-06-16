@@ -124,59 +124,14 @@ class DRDT_plugin {
         $data = get_user_meta($userId);
         // check for filter only in case of digital responder(marketer)
         // also if location array contains world(id = 1 default value from database)
-        if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) && !in_array(1, $data['wp_'.get_current_blog_id().'_location_grid'])) {
+        if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) && (!in_array(1, $data['idrsg_'.get_current_blog_id().'_location_grid'])) ) {
             // get_user_option() is giving the single location of the loggedIn user
             // so to get the location array of the user $data is used with get_current_blog_id()
             // $query[] =  [ "location_grid" =>  [get_user_option( 'location_grid', $userId)] ];
-            $query[] =  [ "location_grid" =>  $data['wp_'.get_current_blog_id().'_location_grid'] ];
+            $query[] =  [ "location_grid" =>  $data['idrsg_'.get_current_blog_id().'_location_grid'] ];
         }
         return $query;
     }
-	/*Below commented code is not working on contact filtering based on location.
-     *
-     */
-	/*
-    public static function dt_filter_access_permissions( $permissions, $post_type ){
-	    if ( $post_type === "contacts" ){
-			//get logged in user id and its role
-			$userId = get_current_user_id();
-			$user = wp_get_current_user();
-	
-		if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) ) {
-				$permissions[] = [ "location_grid" => [get_user_option( 'location_grid', $userId )]];
-            }
-			
-        }
-		return $permissions;
-    }
-	
-	
-
-    public	function can_view_permission_filter( $has_permission, $post_id, $post_type ){
-		
-        if ( $post_type === "contacts" ){
-			$userId = get_current_user_id();
-			$locations = get_post_meta( $post_id, "location_grid", false );
-			//cheeck for the view permission
-			 if ( count(array_intersect([get_user_option( 'location_grid', $userId)], $locations ))>0){
-				return true;
-			}
-          
-        }
-        return $has_permission;
-    }
-    public  function can_update_permission_filter( $has_permission, $post_id, $post_type ){
-        if ( $post_type === "contacts" ){
-			$userId = get_current_user_id();
-			$locations = get_post_meta( $post_id, "location_grid", false );
-			
-			 if ( count(array_intersect([get_user_option( 'location_grid', $userId )], $locations ))>0){
-				 return true;
-			 }
-        }
-        return $has_permission;
-    }
-	*/
     /**
      * Filters the array of row meta for each/specific plugin in the Plugins list table.
      * Appends additional links below each/specific plugin on the plugins page.
