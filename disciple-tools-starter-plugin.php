@@ -105,12 +105,37 @@ class DRDT_plugin {
             add_filter( 'plugin_row_meta', [ $this, 'plugin_description_links' ], 10, 4 );
         }
 
+		/*
         add_filter( "dt_filter_access_permissions", [ $this, "dt_filter_access_permissions" ], 20, 2 );
         add_filter( "dt_can_view_permission", [ $this, 'can_view_permission_filter' ], 10, 3 );
         add_filter( "dt_can_update_permission", [ $this, 'can_update_permission_filter' ], 10, 3 );
+		*/
+		add_filter( "dt_search_viewable_posts_query", [ $this, "dt_search_viewable_posts_query" ], 10, 1 );
 
     }
-
+	/**
+     * dt_search_viewable_posts_query() : apply filters to contact listing
+     * @param $query
+     * @return mixed
+     */
+    public function dt_search_viewable_posts_query( $query ){
+        $userId = get_current_user_id();
+        $user = wp_get_current_user();
+        $data = get_user_meta($userId);
+        // check for filter only in case of digital responder(marketer)
+        // also if location array contains world(id = 1 default value from database)
+        if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) && !in_array(1, $data['wp_'.get_current_blog_id().'_location_grid'])) {
+            // get_user_option() is giving the single location of the loggedIn user
+            // so to get the location array of the user $data is used with get_current_blog_id()
+            // $query[] =  [ "location_grid" =>  [get_user_option( 'location_grid', $userId)] ];
+            $query[] =  [ "location_grid" =>  $data['wp_'.get_current_blog_id().'_location_grid'] ];
+        }
+        return $query;
+    }
+	/*Below commented code is not working on contact filtering based on location.
+     *
+     */
+	/*
     public static function dt_filter_access_permissions( $permissions, $post_type ){
 	    if ( $post_type === "contacts" ){
 			//get logged in user id and its role
@@ -135,7 +160,7 @@ class DRDT_plugin {
 			//cheeck for the view permission
 			 if ( count(array_intersect([get_user_option( 'location_grid', $userId)], $locations ))>0){
 				return true;
-			}[
+			}
           
         }
         return $has_permission;
@@ -151,6 +176,7 @@ class DRDT_plugin {
         }
         return $has_permission;
     }
+	*/
     /**
      * Filters the array of row meta for each/specific plugin in the Plugins list table.
      * Appends additional links below each/specific plugin on the plugins page.
