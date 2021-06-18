@@ -104,31 +104,28 @@ class DRDT_plugin {
         if ( is_admin() ) { // adds links to the plugin description area in the plugin admin list.
             add_filter( 'plugin_row_meta', [ $this, 'plugin_description_links' ], 10, 4 );
         }
-
-		/*
-        add_filter( "dt_filter_access_permissions", [ $this, "dt_filter_access_permissions" ], 20, 2 );
-        add_filter( "dt_can_view_permission", [ $this, 'can_view_permission_filter' ], 10, 3 );
-        add_filter( "dt_can_update_permission", [ $this, 'can_update_permission_filter' ], 10, 3 );
-		*/
-		add_filter( "dt_search_viewable_posts_query", [ $this, "dt_search_viewable_posts_query" ], 10, 1 );
+        add_filter( "dt_search_viewable_posts_query", [ $this, "dt_search_viewable_posts_query" ], 10, 1 );
 
     }
-	/**
+
+    /**
      * dt_search_viewable_posts_query() : apply filters to contact listing
      * @param $query
      * @return mixed
      */
     public function dt_search_viewable_posts_query( $query ){
-        $userId = get_current_user_id();
         $user = wp_get_current_user();
-        $data = get_user_meta($userId);
+        $userLocations = Disciple_Tools_Users::get_user_location (get_current_user_id());
+        $userLocArray = [];
+        if(count($userLocations) > 0){
+            foreach ($userLocations['location_grid'] as $key => $userLocation){
+                $userLocArray[$key] = $userLocation['id'];
+            }
+        }
         // check for filter only in case of digital responder(marketer)
         // also if location array contains world(id = 1 default value from database)
-        if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) && (!in_array(1, $data['idrsg_'.get_current_blog_id().'_location_grid'])) ) {
-            // get_user_option() is giving the single location of the loggedIn user
-            // so to get the location array of the user $data is used with get_current_blog_id()
-            // $query[] =  [ "location_grid" =>  [get_user_option( 'location_grid', $userId)] ];
-            $query[] =  [ "location_grid" =>  $data['idrsg_'.get_current_blog_id().'_location_grid'] ];
+        if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) && !in_array(1, $userLocArray)) {
+            $query[] =  [ "location_grid" =>  $userLocArray ];
         }
         return $query;
     }
