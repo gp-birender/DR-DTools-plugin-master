@@ -104,11 +104,16 @@ class DRDT_plugin {
         if ( is_admin() ) { // adds links to the plugin description area in the plugin admin list.
             add_filter( 'plugin_row_meta', [ $this, 'plugin_description_links' ], 10, 4 );
         }
-        add_filter( "dt_search_viewable_posts_query", [ $this, "dt_search_viewable_posts_query" ], 10, 1 );
+
+		/*
+        add_filter( "dt_filter_access_permissions", [ $this, "dt_filter_access_permissions" ], 20, 2 );
+        add_filter( "dt_can_view_permission", [ $this, 'can_view_permission_filter' ], 10, 3 );
+        add_filter( "dt_can_update_permission", [ $this, 'can_update_permission_filter' ], 10, 3 );
+		*/
+		add_filter( "dt_search_viewable_posts_query", [ $this, "dt_search_viewable_posts_query" ], 10, 1 );
 
     }
-
-    /**
+	/**
      * dt_search_viewable_posts_query() : apply filters to contact listing
      * @param $query
      * @return mixed
@@ -125,7 +130,11 @@ class DRDT_plugin {
         // check for filter only in case of digital responder(marketer)
         // also if location array contains world(id = 1 default value from database)
         if ( in_array( 'marketer', (array) $user->roles ) && !current_user_can( 'administrator' ) && !in_array(1, $userLocArray)) {
-            $query[] =  [ "location_grid" =>  $userLocArray ];
+            $query[] =  [ 
+				"location_grid" =>  $userLocArray, 
+				"assigned_to" =>  ['me'], 
+				"subassigned" =>  ['me']
+			];
         }
         return $query;
     }
